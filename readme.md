@@ -28,7 +28,7 @@
 
 
 ### [main.py]()
-### [app in jupyter notebook]()
+### [app in jupyter notebook](https://github.com/YaroslavaVob/Library-managment-system/blob/main/manage%20console.ipynb)
 ### [streamlit app]()
 
 ---
