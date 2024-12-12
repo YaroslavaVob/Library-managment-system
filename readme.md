@@ -29,7 +29,7 @@
 
 ### [main.py](https://github.com/YaroslavaVob/Library-managment-system/blob/main/main.py)
 ### [app in jupyter notebook](https://github.com/YaroslavaVob/Library-managment-system/blob/main/manage%20console.ipynb)
-### [streamlit app]()
+### [streamlit app](https://github.com/YaroslavaVob/Library-managment-system/blob/main/streamlit_app.py)
 
 ---
 
