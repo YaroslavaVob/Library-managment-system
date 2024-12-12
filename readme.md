@@ -29,6 +29,7 @@
 
 Детально изучить этапы разработки прототипа приложения и протестировать его вы сможете, скачав данный репозиторий и запустив его на своем локальном компьютере, не забудьте изменить путь к текстовому файлу 'library.csv'.
 
+### [Зайти в управление библиотекой](https://library-management.streamlit.app/)
 
 ### [main.py](https://github.com/YaroslavaVob/Library-managment-system/blob/main/main.py)
 ### [app in jupyter notebook](https://github.com/YaroslavaVob/Library-managment-system/blob/main/manage%20console.ipynb)
