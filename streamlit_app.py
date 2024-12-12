@@ -7,8 +7,8 @@ import os
 import string
 from random import randint
 
-# файл для хранения данных с книгами
-library = 'https://drive.google.com/uc?id=1Rpdc0_h7Gv67gWnkeP2y8rJfhGBb6dAi' 
+# прямая загрузочная ссылка из Google Drive
+library_url = 'https://drive.google.com/uc?id=1Rpdc0_h7Gv67gWnkeP2y8rJfhGBb6dAi' 
 # устанавливаем формат страницы браузера: на всю ширину
 st.set_page_config(page_title='Electronic library', layout="wide")
 st.markdown(
@@ -59,12 +59,13 @@ class Book:
     # 1-я доп функция
     @classmethod
     def load_books(self):
-        if not os.path.exists(library): # если файла в системе не существует
-            return print('Данного файла не существует')
-        # загружаем файл и преобразовываем в таблицу 
-        books = pd.read_csv(library, sep=',') 
-        return books
-    
+        try:
+            books = pd.read_csv(library_url)
+            return books
+        except Exception as e:
+            print(f"Ошибка при загрузке данных: {e}")
+            return None
+
     # 2-я доп функция
     @classmethod
     def save_books(self, book):
@@ -94,10 +95,16 @@ class Book:
     def show_library(self):
         with st.expander("Посмотреть всю библиотеку", expanded=False): # Создаем блок, который можно свернуть
             books = self.load_books()  # загружаем книги 
+            if books is None:
+                st.error("Не удалось загрузить библиотеку. Проверьте источник файла.")
+                return
+            if not isinstance(books, pd.DataFrame):
+                st.error("Данные библиотеки имеют неверный формат.")
+                return
             if books.empty:
-                st.error("#### Библиотека пуста.")
+                st.warning("Библиотека пуста.")
             else:
-                st.success(f"#### Библиотека содержит {books.shape[0]} книг на данный момент")
+                st.success(f"Библиотека содержит {books.shape[0]} книг на данный момент")
                 # для красивого вывода сортируем по ID и затем ID устанавливаем в качестве индексов
                 st.table(books.sort_values(by='ID').set_index('ID'))
         
