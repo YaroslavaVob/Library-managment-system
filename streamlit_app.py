@@ -8,7 +8,7 @@ import string
 from random import randint
 
 # файл для хранения данных с книгами
-library = 'C:\IDE\SkillFactory\Разработка СУ биб-кой\library.csv' 
+library = 'https://drive.google.com/uc?id=1Rpdc0_h7Gv67gWnkeP2y8rJfhGBb6dAi' 
 # устанавливаем формат страницы браузера: на всю ширину
 st.set_page_config(page_title='Electronic library', layout="wide")
 st.markdown(
