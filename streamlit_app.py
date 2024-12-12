@@ -76,7 +76,7 @@ class Book:
                          'Год издания': [book.year], 
                          'Статус': [book.status]})
         # сохраним новый объект в существующий файл в режиме 'дозапись'
-        new_book.to_csv(library, mode='a', index=False, header=False)
+        new_book.to_csv(library_url, mode='a', index=False, header=False)
         
     """
     Далее следуют основные функция управления электронной библиотекой:
@@ -259,7 +259,7 @@ class Book:
                     # обновляем статус
                     books.at[index, 'Статус'] = new_status
                     # перезаписываем файл
-                    books.to_csv(library, mode='w+', index=False)
+                    books.to_csv(library_url, mode='w+', index=False)
                     st.success(f"Статус книги с ID {id_book} обновлен.")
             else:
                 st.error("Книга с таким ID не найдена.")
@@ -288,7 +288,7 @@ class Book:
                 index = books[books.ID == id_book].index[0]  # находим индекс данного объекта
                 books.drop(index, axis=0, inplace=True)      # удаляем объект по индексу
                 # пересохраняем файл
-                books.to_csv(library, mode='w+', index=False)
+                books.to_csv(library_url, mode='w+', index=False)
                 st.success(f"Книга с ID {id_book} удалена.")
             else:
                 st.warning("Книга с таким ID не найдена.")  # в случае несовпадения ни с одним ID книги
