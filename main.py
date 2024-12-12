@@ -3,7 +3,7 @@ import os             # модуль для работы с операционн
 import string          
 
 # файл для хранения данных с книгами
-library = 'C:\IDE\SkillFactory\Разработка СУ биб-кой\library.csv' 
+library = 'library.csv' 
 
 """
 Создаем класс Book со следующими параметрами: 
